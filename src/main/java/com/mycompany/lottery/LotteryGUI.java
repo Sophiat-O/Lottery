@@ -11,6 +11,20 @@ import javax.swing.JOptionPane;
  *
  * @author sophie
  */
+
+/*
+
+
+Michael: This is the GUI component of the app. Here are my observations.
+
+1. I think it's possible to have broken down this file into components. The class file is a bit long :)
+2. Ermm this is personal tho, but I think we can avoid else if and else. Build controls to just handle unhappy paths
+3. 
+
+
+*/
+
+
 public class LotteryGUI extends javax.swing.JFrame {
 
     ArrayList<Integer> userNum;
