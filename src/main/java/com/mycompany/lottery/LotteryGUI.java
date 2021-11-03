@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 public class LotteryGUI extends javax.swing.JFrame {
 
     ArrayList<Integer> userNum;
-    ArrayList<Integer> matchedNum;
+    //ArrayList<Integer> matchedNum;
    
 
     /**
@@ -23,7 +23,7 @@ public class LotteryGUI extends javax.swing.JFrame {
     public LotteryGUI() {
         initComponents();
         userNum = new ArrayList();
-        matchedNum = new ArrayList();
+        //matchedNum = new ArrayList();
         
     }
 
@@ -59,16 +59,21 @@ public class LotteryGUI extends javax.swing.JFrame {
         drawBet = new javax.swing.JButton();
 
         jDialog1.setPreferredSize(new java.awt.Dimension(617, 300));
-        jDialog1.setSize(new java.awt.Dimension(617, 408));
+        jDialog1.setSize(new java.awt.Dimension(600, 408));
 
+        jLabel5.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel5.setText("jLabel5");
 
+        jLabel6.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel6.setText("jLabel6");
 
+        jLabel7.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel7.setText("jLabel7");
 
+        jLabel8.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel8.setText("jLabel8");
 
+        jLabel9.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel9.setText("jLabel9");
 
         jLabel10.setText("Gain =");
@@ -89,8 +94,7 @@ public class LotteryGUI extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel11)
                         .addGap(30, 30, 30)
-                        .addComponent(jLabel12)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel12))
                     .addGroup(jDialog1Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addGap(14, 14, 14)
@@ -99,9 +103,9 @@ public class LotteryGUI extends javax.swing.JFrame {
                         .addComponent(jLabel7)
                         .addGap(12, 12, 12)
                         .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 223, Short.MAX_VALUE)
-                        .addComponent(jLabel9)
-                        .addGap(45, 45, 45))))
+                        .addGap(85, 85, 85)
+                        .addComponent(jLabel9)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jDialog1Layout.setVerticalGroup(
             jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,7 +117,7 @@ public class LotteryGUI extends javax.swing.JFrame {
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
                 .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(jLabel11)
@@ -302,48 +306,53 @@ public class LotteryGUI extends javax.swing.JFrame {
 
     private void drawBetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drawBetActionPerformed
         // TODO add your handling code here:
-        PlayLotto newBet = new PlayLotto(Integer.parseInt(betAmount.getText().trim()));
-        ArrayList<Integer> displayRandNumbers = newBet.getRanMatchNumber();
-        int superBet = newBet.getSuperBet();
-        int betWinnings = 0;
-        
+        Tolo placeNewBet = new Tolo();
+        ArrayList<Integer> ranNumber = new ArrayList();
         
         jDialog1.setVisible(true);
-        jLabel5.setText(Integer.toString(displayRandNumbers.get(0)));
-        jLabel6.setText(Integer.toString(displayRandNumbers.get(1)));
-        jLabel7.setText(Integer.toString(displayRandNumbers.get(2)));
-        jLabel8.setText(Integer.toString(displayRandNumbers.get(3)));
-        jLabel9.setVisible(false);
+        
+        
+        
+        //jDialog1.setVisible(true);
+        //jLabel5.setText(Integer.toString(displayRandNumbers.get(0)));
+        //jLabel6.setText(Integer.toString(displayRandNumbers.get(1)));
+        //jLabel7.setText(Integer.toString(displayRandNumbers.get(2)));
+        //jLabel8.setText(Integer.toString(displayRandNumbers.get(3)));
+        //jLabel9.setVisible(false);
 
-            for(int i : userNum){
-                if(displayRandNumbers.contains(i)){
-                    matchedNum.add(i);
-                }
-            }
-            
-            if(matchedNum.size() == 3){
-                betWinnings+= newBet.getBetAmount() * 5;
-                jLabel11.setText(Integer.toString(betWinnings));
-            }
-            
-            
-            else if(matchedNum.size() == 4){
-                betWinnings+= newBet.getBetAmount() * 50;
-                jLabel11.setText(Integer.toString(betWinnings));
-            }
-            
-            else
-                jLabel11.setText("0");
-            
+           
             
         //}
         if(jCheckBox1.isSelected()){
+            
             jLabel9.setVisible(true);
-            jLabel9.setText(Integer.toString(superBet));
-            if(Integer.parseInt(luckyNumber.getText().trim()) == superBet){
-                betWinnings+= betWinnings * 5;
-                jLabel11.setText(Integer.toString(betWinnings));
-            }  
+            
+            
+            placeNewBet.createBet(userNum.get(0), userNum.get(1), userNum.get(2), userNum.get(3), Integer.parseInt(luckyNumber.getText().trim()), Integer.parseInt(betAmount.getText().trim()));
+            
+            jLabel11.setText(Integer.toString(placeNewBet.playBet()));
+            
+            jLabel5.setText(Integer.toString(placeNewBet.drawRanNumbers().get(0)));
+            jLabel6.setText(Integer.toString(placeNewBet.drawRanNumbers().get(1)));
+            jLabel7.setText(Integer.toString(placeNewBet.drawRanNumbers().get(2)));
+            jLabel8.setText(Integer.toString(placeNewBet.drawRanNumbers().get(3)));
+            jLabel9.setText(Integer.toString(placeNewBet.drawLuckyNumber()));
+            
+            
+            
+        }
+        else if(!jCheckBox1.isSelected()){
+            
+            jLabel9.setVisible(false);
+            
+            placeNewBet.createBet(userNum.get(0), userNum.get(1), userNum.get(2), userNum.get(3), Integer.parseInt(betAmount.getText().trim()));
+            
+            jLabel11.setText(Integer.toString(placeNewBet.playBet()));
+            
+            jLabel5.setText(Integer.toString(placeNewBet.drawRanNumbers().get(0)));
+            jLabel6.setText(Integer.toString(placeNewBet.drawRanNumbers().get(1)));
+            jLabel7.setText(Integer.toString(placeNewBet.drawRanNumbers().get(2)));
+            jLabel8.setText(Integer.toString(placeNewBet.drawRanNumbers().get(3)));    
         
         }
        
