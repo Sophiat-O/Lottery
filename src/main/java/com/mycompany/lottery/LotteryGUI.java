@@ -307,22 +307,11 @@ public class LotteryGUI extends javax.swing.JFrame {
     private void drawBetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drawBetActionPerformed
         // TODO add your handling code here:
         Tolo placeNewBet = new Tolo();
+        
         ArrayList<Integer> ranNumber = new ArrayList();
         
         jDialog1.setVisible(true);
         
-        
-        
-        //jDialog1.setVisible(true);
-        //jLabel5.setText(Integer.toString(displayRandNumbers.get(0)));
-        //jLabel6.setText(Integer.toString(displayRandNumbers.get(1)));
-        //jLabel7.setText(Integer.toString(displayRandNumbers.get(2)));
-        //jLabel8.setText(Integer.toString(displayRandNumbers.get(3)));
-        //jLabel9.setVisible(false);
-
-           
-            
-        //}
         if(jCheckBox1.isSelected()){
             
             jLabel9.setVisible(true);
@@ -337,10 +326,9 @@ public class LotteryGUI extends javax.swing.JFrame {
             jLabel7.setText(Integer.toString(placeNewBet.drawRanNumbers().get(2)));
             jLabel8.setText(Integer.toString(placeNewBet.drawRanNumbers().get(3)));
             jLabel9.setText(Integer.toString(placeNewBet.drawLuckyNumber()));
-            
-            
-            
+                
         }
+        
         else if(!jCheckBox1.isSelected()){
             
             jLabel9.setVisible(false);
