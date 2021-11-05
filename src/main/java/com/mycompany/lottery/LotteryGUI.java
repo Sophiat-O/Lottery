@@ -319,12 +319,14 @@ public class LotteryGUI extends javax.swing.JFrame {
             
             placeNewBet.createBet(userNum.get(0), userNum.get(1), userNum.get(2), userNum.get(3), Integer.parseInt(luckyNumber.getText().trim()), Integer.parseInt(betAmount.getText().trim()));
             
+            ArrayList<Integer> drawnNumber = placeNewBet.drawRanNumbers();
+            
             jLabel11.setText(Integer.toString(placeNewBet.playBet()));
             
-            jLabel5.setText(Integer.toString(placeNewBet.drawRanNumbers().get(0)));
-            jLabel6.setText(Integer.toString(placeNewBet.drawRanNumbers().get(1)));
-            jLabel7.setText(Integer.toString(placeNewBet.drawRanNumbers().get(2)));
-            jLabel8.setText(Integer.toString(placeNewBet.drawRanNumbers().get(3)));
+            jLabel5.setText(Integer.toString(drawnNumber.get(0)));
+            jLabel6.setText(Integer.toString(drawnNumber.get(1)));
+            jLabel7.setText(Integer.toString(drawnNumber.get(2)));
+            jLabel8.setText(Integer.toString(drawnNumber.get(3)));
             jLabel9.setText(Integer.toString(placeNewBet.drawLuckyNumber()));
                 
         }
@@ -334,13 +336,15 @@ public class LotteryGUI extends javax.swing.JFrame {
             jLabel9.setVisible(false);
             
             placeNewBet.createBet(userNum.get(0), userNum.get(1), userNum.get(2), userNum.get(3), Integer.parseInt(betAmount.getText().trim()));
+            ArrayList<Integer> drawnNumbers = placeNewBet.drawRanNumbers();
             
             jLabel11.setText(Integer.toString(placeNewBet.playBet()));
             
-            jLabel5.setText(Integer.toString(placeNewBet.drawRanNumbers().get(0)));
-            jLabel6.setText(Integer.toString(placeNewBet.drawRanNumbers().get(1)));
-            jLabel7.setText(Integer.toString(placeNewBet.drawRanNumbers().get(2)));
-            jLabel8.setText(Integer.toString(placeNewBet.drawRanNumbers().get(3)));    
+            
+            jLabel5.setText(Integer.toString(drawnNumbers.get(0)));
+            jLabel6.setText(Integer.toString(drawnNumbers.get(1)));
+            jLabel7.setText(Integer.toString(drawnNumbers.get(2)));
+            jLabel8.setText(Integer.toString(drawnNumbers.get(3)));    
         
         }
        

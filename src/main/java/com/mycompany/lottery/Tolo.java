@@ -22,6 +22,7 @@ public class Tolo {
         this.bet = null;
     }
     
+    //Initialize bet by creating a new bet with the user inputting four numbers
     public Bet createBet(int firstNum, int secondNum, int thirdNum, int fourthNum, int betFee){
         this.bet = new Bet(firstNum, secondNum, thirdNum, fourthNum,  betFee);
         return this.bet;
@@ -34,26 +35,25 @@ public class Tolo {
     
     public ArrayList<Integer> drawRanNumbers(){
         
-        ArrayList<Integer> numbers = new ArrayList<Integer>();
         ArrayList<Integer> ranDrawnNumbers = new ArrayList();
         Random drawRanNumber = new Random();
         
-        for (int i = 1; i <= 20; i++)
-               numbers.add(i); //add number 1 to 20 to the array list
+      
         
+        while(ranDrawnNumbers.size() < 4){
+            int drawLottoNum = drawRanNumber.nextInt(20); //generate random numbers from 1 - 20
+            if(!ranDrawnNumbers.contains(drawLottoNum) && drawLottoNum !=0 )  // check if the number already exist in the array and if the number is equal to 0.
+              ranDrawnNumbers.add(drawLottoNum); // add the random generated to the array list when all checks pass
+            
+      	} 
         
-        
-        for (int j = 1; j <= 4; j++) {
-                int drawLottoNum = drawRanNumber.nextInt(numbers.size());
-                ranDrawnNumbers.add(numbers.get(drawLottoNum));
-                numbers.remove(drawLottoNum);
-           }
+        //System.out.println(ranDrawnNumbers);
         
         this.drawNumbers = ranDrawnNumbers; 
         return this.drawNumbers;
     }
     
-    public int drawLuckyNumber(){
+    public int drawLuckyNumber(){  // generate one random number that is not equal to zero.
         
         Random rand = new Random();
         
@@ -78,19 +78,14 @@ public class Tolo {
     public int getTotalMatchedNumbers(){
         ArrayList<Integer> matchedNumbers = new ArrayList();
         
-        for (Integer i : this.drawNumbers) {
-            if(bet.getUserNumber().contains(i))
-                matchedNumbers.add(i);
+        for (Integer i : this.drawNumbers) { 
+            if(bet.getUserNumber().contains(i)) // a check to see if user inputted number are in the drawn numbers
+                matchedNumbers.add(i);          // if inputted number is seen in drawn numbers then we add to a new array
         }
         
-        return matchedNumbers.size();
+        return matchedNumbers.size();           // return the array size as the total number of matched bet.
     }
     
-    
-    
-    public ArrayList<Integer> getDrawNumbers() {
-        return drawNumbers;
-    }
         
     
 }
