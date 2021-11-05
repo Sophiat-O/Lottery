@@ -28,6 +28,7 @@ public class Tolo {
         return this.bet;
     }
     
+    //Initialize super bet by creating a new bet and including a variable for the lucky number
     public Bet createBet(int firstNum, int secondNum, int thirdNum, int fourthNum, int luckyNum, int betFee) {
         this.bet  =  new SuperBet(firstNum, secondNum, thirdNum, fourthNum, luckyNum, betFee);
         return this.bet;
@@ -38,7 +39,6 @@ public class Tolo {
         ArrayList<Integer> ranDrawnNumbers = new ArrayList();
         Random drawRanNumber = new Random();
         
-      
         
         while(ranDrawnNumbers.size() < 4){
             int drawLottoNum = drawRanNumber.nextInt(20); //generate random numbers from 1 - 20
