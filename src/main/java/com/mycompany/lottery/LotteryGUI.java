@@ -22,7 +22,7 @@ public class LotteryGUI extends javax.swing.JFrame {
      */
     public LotteryGUI() {
         initComponents();
-        userNum = new ArrayList();
+        userNum = new ArrayList(); // Initialize a new array which will hold all user inputted numbers
         //matchedNum = new ArrayList();
         
     }
@@ -249,6 +249,7 @@ public class LotteryGUI extends javax.swing.JFrame {
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:
+        //To set visibility of the lucky number text box based on user choice
         if(!jCheckBox1.isSelected()){
             luckyNumber.setVisible(false);
             jLabel2.setVisible(false);
@@ -261,6 +262,7 @@ public class LotteryGUI extends javax.swing.JFrame {
 
     private void firstNumberFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_firstNumberFocusLost
         // TODO add your handling code here:
+        // A check to see if user inputted numbers is between  1 and 20 once passed we add the number to array userNum
         if(Integer.parseInt(firstNumber.getText()) > 20 || Integer.parseInt(firstNumber.getText()) == 0){
             JOptionPane.showMessageDialog(null,"Choose a number that is not used between 1 - 20","Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -271,6 +273,7 @@ public class LotteryGUI extends javax.swing.JFrame {
 
     private void secondNumberFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_secondNumberFocusLost
         // TODO add your handling code here:
+        // A check to see if user inputted numbers is between  1 and 20, we also check if the number is already in the array userNum once passed we add the number to array userNum
         if(Integer.parseInt(secondNumber.getText()) > 20 || userNum.contains(Integer.parseInt(secondNumber.getText())) 
                 || Integer.parseInt(secondNumber.getText()) == 0 ){
             JOptionPane.showMessageDialog(null,"Choose a number that is not used between 1 - 20","Error", JOptionPane.ERROR_MESSAGE);
@@ -281,6 +284,7 @@ public class LotteryGUI extends javax.swing.JFrame {
 
     private void thirdNumberFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_thirdNumberFocusLost
         // TODO add your handling code here:
+        // A check to see if user inputted numbers is between  1 and 20, we also check if the number is already in the array userNum once passed we add the number to array userNum
         if(Integer.parseInt(thirdNumber.getText()) > 20 || userNum.contains(Integer.parseInt(thirdNumber.getText())) || Integer.parseInt(thirdNumber.getText()) == 0 ){
             JOptionPane.showMessageDialog(null,"Choose a number that is not used between 1 - 20","Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -290,6 +294,7 @@ public class LotteryGUI extends javax.swing.JFrame {
 
     private void fourthNumberFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fourthNumberFocusLost
         // TODO add your handling code here:
+        // A check to see if user inputted numbers is between  1 and 20, we also check if the number is already in the array userNum once passed we add the number to array userNum
         if(Integer.parseInt(fourthNumber.getText()) > 20 || userNum.contains(Integer.parseInt(fourthNumber.getText())) || Integer.parseInt(fourthNumber.getText()) == 0 ){
             JOptionPane.showMessageDialog(null,"Choose a number that is not used between 1 - 20","Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -299,6 +304,7 @@ public class LotteryGUI extends javax.swing.JFrame {
 
     private void luckyNumberFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_luckyNumberFocusLost
         // TODO add your handling code here:
+        // A check to see if user inputted numbers is between  1 and 20, we also check if the number is already in the array userNum once passed we add the number to array userNum
         if(Integer.parseInt(luckyNumber.getText()) > 10  || Integer.parseInt(luckyNumber.getText()) == 0 ){
             JOptionPane.showMessageDialog(null,"Choose a number that is not used between 1 - 10","Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -306,9 +312,10 @@ public class LotteryGUI extends javax.swing.JFrame {
 
     private void drawBetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drawBetActionPerformed
         // TODO add your handling code here:
+        
+        //Initialize a new bet here based on user action
         Tolo placeNewBet = new Tolo();
         
-        ArrayList<Integer> ranNumber = new ArrayList();
         
         jDialog1.setVisible(true);
         
