@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"com.mycompany.lottery","l":"Bet"},{"p":"com.mycompany.lottery","l":"LotteryGUI"},{"p":"com.mycompany.lottery","l":"SuperBet"},{"p":"com.mycompany.lottery","l":"Tolo"}]

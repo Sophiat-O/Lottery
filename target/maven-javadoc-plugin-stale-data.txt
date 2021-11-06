@@ -1,0 +1,49 @@
+@options
+@packages
+-encoding
+'UTF-8'
+-protected
+-source
+'11'
+-sourcepath
+'/Users/sophie/NetBeansProjects/Lottery/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2021. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/Users/sophie/NetBeansProjects/Lottery/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Lottery 1.0-SNAPSHOT API'
+-linkoffline
+'https://docs.oracle.com/en/java/javase/11/docs/api' '/Users/sophie/NetBeansProjects/Lottery/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'Lottery 1.0-SNAPSHOT API'
+com.mycompany.lottery
+/Users/sophie/NetBeansProjects/Lottery/src/main/java/.DS_Store = 1636146200635
+/Users/sophie/NetBeansProjects/Lottery/src/main/java = 1636146195620
+/Users/sophie/NetBeansProjects/Lottery/target/site/apidocs/constant-values.html = 1636147447767
+/Users/sophie/NetBeansProjects/Lottery/target/site/apidocs/member-search-index.zip = 1636147448351
+/Users/sophie/NetBeansProjects/Lottery/target/site/apidocs/overview-tree.html = 1636147448101
+/Users/sophie/NetBeansProjects/Lottery/target/site/apidocs/index.html = 1636147448487
+/Users/sophie/NetBeansProjects/Lottery/target/site/apidocs/package-search-index.js = 1636147448210
+/Users/sophie/NetBeansProjects/Lottery/target/site/apidocs/package-search-index.zip = 1636147448333
+/Users/sophie/NetBeansProjects/Lottery/target/site/apidocs/type-search-index.zip = 1636147448344
+/Users/sophie/NetBeansProjects/Lottery/target/site/apidocs/serialized-form.html = 1636147447889
+/Users/sophie/NetBeansProjects/Lottery/target/site/apidocs/index-all.html = 1636147448356
+/Users/sophie/NetBeansProjects/Lottery/target/site/apidocs/allpackages-index.html = 1636147448416
+/Users/sophie/NetBeansProjects/Lottery/target/site/apidocs/deprecated-list.html = 1636147448444
+/Users/sophie/NetBeansProjects/Lottery/target/site/apidocs/member-search-index.js = 1636147448347
+/Users/sophie/NetBeansProjects/Lottery/target/site/apidocs/allclasses.html = 1636147448459
+/Users/sophie/NetBeansProjects/Lottery/target/site/apidocs/script.js = 1636147448540
+/Users/sophie/NetBeansProjects/Lottery/target/site/apidocs/stylesheet.css = 1636147448528
+/Users/sophie/NetBeansProjects/Lottery/target/site/apidocs/help-doc.html = 1636147448521
+/Users/sophie/NetBeansProjects/Lottery/target/site/apidocs/element-list = 1636147447628
+/Users/sophie/NetBeansProjects/Lottery/target/site/apidocs/allclasses-index.html = 1636147448397
+/Users/sophie/NetBeansProjects/Lottery/target/site/apidocs/type-search-index.js = 1636147448338
+/Users/sophie/NetBeansProjects/Lottery/target/site/apidocs/search.js = 1636147448549
