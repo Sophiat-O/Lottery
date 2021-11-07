@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package com.mycompany.lottery;
+        
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -13,12 +14,23 @@ import javax.swing.JOptionPane;
  */
 public class LotteryGUI extends javax.swing.JFrame {
 
+    
+    ArrayList<Integer> userNum;
+    
+    
     /**
      * Creates new form LotteryGUI
      */
+    
+    
     public LotteryGUI() {
+        
         initComponents();
-       
+        userNum = new ArrayList();
+        userNum.add(0);
+        userNum.add(0);
+        userNum.add(0);
+        userNum.add(0);
         
     }
 
@@ -257,41 +269,51 @@ public class LotteryGUI extends javax.swing.JFrame {
     private void firstNumberFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_firstNumberFocusLost
         
         // TODO add your handling code here:
-        // A check to see if user inputted numbers is between  1 and 20 once passed we add the number to array userNum
-        if(Integer.parseInt(firstNumber.getText().trim()) > 20 || Integer.parseInt(firstNumber.getText().trim()) == 0){
-            JOptionPane.showMessageDialog(null,"Choose a number that is not used between 1 - 20","Error", JOptionPane.ERROR_MESSAGE);
-        }
+
+        // A check to see if user inputted numbers is between  1 and 20 and if the number already exist
+            if(Integer.parseInt(firstNumber.getText().trim()) > 20 || Integer.parseInt(firstNumber.getText().trim()) == 0 
+                  || userNum.contains(Integer.parseInt(firstNumber.getText().trim()))){
+                JOptionPane.showMessageDialog(null,"Choose a number that is not used between 1 - 20","Error", JOptionPane.ERROR_MESSAGE);
+            }
+            else
+                userNum.set(0, Integer.parseInt(firstNumber.getText().trim()));
+        
         
         
     }//GEN-LAST:event_firstNumberFocusLost
 
     private void secondNumberFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_secondNumberFocusLost
         // TODO add your handling code here:
-        // A check to see if user inputted numbers is between  1 and 20, we also check if the number is already in the array userNum once passed we add the number to array userNum
-        if(Integer.parseInt(secondNumber.getText().trim()) > 20 || Integer.parseInt(firstNumber.getText().trim()) == Integer.parseInt(secondNumber.getText().trim()) 
-                || Integer.parseInt(secondNumber.getText().trim()) == 0 ){
-            JOptionPane.showMessageDialog(null,"Choose a number that is not used between 1 - 20","Error", JOptionPane.ERROR_MESSAGE);
-        }
         
+        // A check to see if user inputted numbers is between  1 and 20 and if it already exist
+            if(Integer.parseInt(secondNumber.getText().trim()) > 20 || Integer.parseInt(secondNumber.getText().trim()) == 0 
+                  || userNum.contains(Integer.parseInt(secondNumber.getText().trim()))){
+                JOptionPane.showMessageDialog(null,"Choose a number that is not used between 1 - 20","Error", JOptionPane.ERROR_MESSAGE);
+            }
+            else
+                userNum.set(1, Integer.parseInt(secondNumber.getText().trim()));
     }//GEN-LAST:event_secondNumberFocusLost
 
     private void thirdNumberFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_thirdNumberFocusLost
         // TODO add your handling code here:
-        // A check to see if user inputted numbers is between  1 and 20, we also check if the number is already in the array userNum once passed we add the number to array userNum
-        if(Integer.parseInt(thirdNumber.getText().trim()) > 20 || Integer.parseInt(thirdNumber.getText().trim()) == Integer.parseInt(secondNumber.getText().trim())
-                || Integer.parseInt(thirdNumber.getText().trim()) == Integer.parseInt(firstNumber.getText().trim()) || Integer.parseInt(thirdNumber.getText().trim()) == 0 ){
-            JOptionPane.showMessageDialog(null,"Choose a number that is not used between 1 - 20","Error", JOptionPane.ERROR_MESSAGE);
-        }
+        // A check to see if user inputted numbers is between  1 and 20, we also check if the number is already in the array userNum once passed we set the second index to this variable
+        if(Integer.parseInt(thirdNumber.getText().trim()) > 20 || Integer.parseInt(thirdNumber.getText().trim()) == 0 
+                  || userNum.contains(Integer.parseInt(thirdNumber.getText().trim()))){
+                JOptionPane.showMessageDialog(null,"Choose a number that is not used between 1 - 20","Error", JOptionPane.ERROR_MESSAGE);
+            }
+            else
+                userNum.set(2, Integer.parseInt(thirdNumber.getText().trim()));
     }//GEN-LAST:event_thirdNumberFocusLost
 
     private void fourthNumberFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fourthNumberFocusLost
         // TODO add your handling code here:
         // A check to see if user inputted numbers is between  1 and 20, we also check if the number is already in the array userNum once passed we add the number to array userNum
-        if(Integer.parseInt(fourthNumber.getText().trim()) > 20 || Integer.parseInt(fourthNumber.getText().trim()) == Integer.parseInt(thirdNumber.getText().trim())
-                || Integer.parseInt(fourthNumber.getText().trim()) == Integer.parseInt(secondNumber.getText().trim()) 
-                || Integer.parseInt(fourthNumber.getText().trim()) == Integer.parseInt(firstNumber.getText().trim()) || Integer.parseInt(fourthNumber.getText().trim()) == 0){
-            JOptionPane.showMessageDialog(null,"Choose a number that is not used between 1 - 20","Error", JOptionPane.ERROR_MESSAGE);
-        }
+        if(Integer.parseInt(fourthNumber.getText().trim()) > 20 || Integer.parseInt(fourthNumber.getText().trim()) == 0 
+                  || userNum.contains(Integer.parseInt(fourthNumber.getText().trim()))){
+                JOptionPane.showMessageDialog(null,"Choose a number that is not used between 1 - 20","Error", JOptionPane.ERROR_MESSAGE);
+            }
+            else
+                userNum.set(3, Integer.parseInt(fourthNumber.getText().trim()));
     }//GEN-LAST:event_fourthNumberFocusLost
 
     private void luckyNumberFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_luckyNumberFocusLost
@@ -305,15 +327,18 @@ public class LotteryGUI extends javax.swing.JFrame {
     private void drawBetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drawBetActionPerformed
         // TODO add your handling code here:
         //check the user has inputted four numbers:
+        
         if(firstNumber.getText() != null && secondNumber.getText() != null && thirdNumber.getText() != null && fourthNumber.getText() != null){
+            
         //Initialize a new bet here based on user action
+            
+            Tolo placeNewBet = new Tolo();
+            ArrayList<Integer> drawnNumber = placeNewBet.drawRanNumbers();
+            
             int firstBet = Integer.parseInt(firstNumber.getText().trim());
             int secBet = Integer.parseInt(secondNumber.getText().trim());
             int thirdBet = Integer.parseInt(thirdNumber.getText().trim());
             int fourthBet = Integer.parseInt(fourthNumber.getText().trim());
-            
-            Tolo placeNewBet = new Tolo();
-            ArrayList<Integer> drawnNumber = placeNewBet.drawRanNumbers();
 
 
             jDialog1.setVisible(true);
